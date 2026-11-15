@@ -1,0 +1,24 @@
+--- a/src/flask_app.py
++++ b/src/flask_app.py
+@@
+-                with tracer.start_as_current_span("charge-card") as payment_span:
++                with tracer.start_as_current_span("charge-card"):
+                     raise RuntimeError("demo payment gateway timeout")
+
+--- a/src/flask_app.py
++++ b/src/flask_app.py
+@@
+-    provider.add_span_processor(
+-        BatchSpanProcessor(
+-            OTLPSpanExporter(endpoint="http://localhost:4317", insecure=True)
+-        )
+-    )
++    otlp_enabled = os.getenv("A9_OTLP_ENABLED", "1").lower() not in {
++        "0", "false", "no",
++    }
++    if otlp_enabled:
++        provider.add_span_processor(
++            BatchSpanProcessor(
++                OTLPSpanExporter(endpoint="http://localhost:4317", insecure=True)
++            )
++        )

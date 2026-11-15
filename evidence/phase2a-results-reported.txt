@@ -1,0 +1,13 @@
+Phase 2A results supplied by the student from Windows CMD
+===========================================================
+
+This file records the results reported to the coding agent. It is not a
+replacement for the original terminal capture. The original CMD output should
+be retained separately by the student for final evidence.
+
+Python: 3.12.10
+Virtual environment: created successfully
+Dependencies: requirements.txt and requirements-dev.txt installed
+Initial Flake8: F841 at src/flask_app.py:38:69
+Initial pytest: 2 passed in 0.97s
+OTLP warning: StatusCode.UNAVAILABLE; failed to export traces to localhost:4317
