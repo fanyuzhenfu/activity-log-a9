@@ -12,6 +12,7 @@
 | E: Dependabot configuration | `.github/dependabot.yml` | PASS | pip and github-actions ecosystems use the root directory and weekly schedules. |
 | E: Dependabot alerts | [Security alerts](https://github.com/fanyuzhenfu/activity-log-a9/security/dependabot) | PASS | API inspection returned 0 alerts at inspection time. This does not prove zero future risk. |
 | E: Dependabot PR and CI | [Dependabot PR #1](https://github.com/fanyuzhenfu/activity-log-a9/pull/1), [PR check](https://github.com/fanyuzhenfu/activity-log-a9/actions/runs/43695472535) | PASS | Dependabot updated actions/checkout 4 to 7; lint-and-test passed. PR remains open. |
-| O: CodeQL workflow | `.github/workflows/codeql.yml` | NOT VERIFIED | Advanced Setup is prepared locally with Python analysis and minimal permissions; a real run is required. |
-| O: CodeQL Actions run | GitHub Actions URL | NOT VERIFIED | Pending push-triggered execution. |
-| O: Code scanning result | GitHub Security page | NOT VERIFIED | The API currently reports no analysis found because CodeQL has not run. |
+| O: CodeQL workflow | `.github/workflows/codeql.yml` | PASS | Advanced Setup uses official `github/codeql-action/init@v3` and `analyze@v3`, Python analysis, push/PR/weekly triggers, and minimal permissions. |
+| O: CodeQL Actions run | [CodeQL run 43696363084](https://github.com/fanyuzhenfu/activity-log-a9/actions/runs/43696363084) | PASS | `Analyze Python` completed successfully for commit `4752564af0a5e37d799d73fd2c531164bdc31bfb`. |
+| O: Code scanning analysis | [Code Scanning](https://github.com/fanyuzhenfu/activity-log-a9/security/code-scanning) | PASS | GitHub analysis record exists with `results_count=0`; the alerts API returned 0 CodeQL alerts. |
+| E: Current Dependabot alerts | [Security alerts](https://github.com/fanyuzhenfu/activity-log-a9/security/dependabot) | PASS | Four current alerts were returned: two medium OpenTelemetry API issues, one low Flask issue, and one medium pytest issue. Patched versions were recorded in Phase 2D notes. |
